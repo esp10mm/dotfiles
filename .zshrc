@@ -5,14 +5,13 @@ export PATH=$PATH:"/lib/pytho2.7/"
 export TERM="xterm-256color"
 
 fpath=(~/zshfunc $fpath)
-autoload spectrum && spectrum
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="lambda-mod"
-ZSH_THEME="myys"
+ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,7 +51,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux python emoji git z npm)
+plugins=(python emoji git z npm)
 
 # User configuration
 

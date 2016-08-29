@@ -8,6 +8,9 @@ set hidden
 set foldmethod=manual
 se nosol
 
+let g:molokai_original = 1
+" let g:rehash256 = 1
+
 " fix meta-keys which generate <Esc>a .. <Esc>z
 let c='a'
 while c <= 'z'
@@ -60,13 +63,21 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'kshenoy/vim-signature'
 Plugin 'majutsushi/tagbar'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tomasr/molokai'
 " Plugin 'grassdog/tagman.vim'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-repeat'
+Plugin 'kien/ctrlp.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'dkprice/vim-easygrep'
 " Plugin 'xolox/vim-easytags'
 " Plugin 'xolox/vim-misc'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 " vundle setup end
@@ -119,6 +130,7 @@ let g:EasyMotion_use_smartsign_us = 1
 " hotkey setup
 map <Leader>n <Esc>:let @*=line(".")<CR>
 map <Leader>b <Esc>:NERDTreeToggle<CR>
+map <Leader>g <Esc>:Gstatus<CR>
 map <Leader>] <Esc>:set paste<CR>
 map <Leader>[ <Esc>:set nopaste<CR>
 map <Leader>f <Esc>:set fdm=indent<CR>
@@ -135,19 +147,19 @@ nmap <F8> :TagbarToggle<CR>
 " inoremap <C-j> <ESC>
 
 " plugin setup
-execute pathogen#infect()
+" execute pathogen#infect()
 
 syntax on
 
 filetype plugin indent on
 
-colorscheme monokai
-let g:monokai_italic = 1
-let g:monokai_thick_border = 1
-let g:monokai_zentree = 1
+colorscheme molokai
+" let g:monokai_italic = 1
+" let g:monokai_thick_border = 1
+" let g:monokai_zentree = 1
 
-let g:indent_guides_guide_size=1
-let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_guide_size=1
+" let g:indent_guides_enable_on_vim_startup = 1
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
