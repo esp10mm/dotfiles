@@ -1,0 +1,6 @@
+[user]
+  name = Patrick Kuo
+  email = patrick5267@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+  editor = vim

@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export PATH=$PATH:"/lib/pytho2.7/site-packages"
 export PATH=$PATH:"/lib/pytho2.7/"
-export TERM="xterm-256color"
+export DISABLE_AUTO_TITLE=true
 
 fpath=(~/zshfunc $fpath)
 
@@ -11,7 +11,7 @@ fpath=(~/zshfunc $fpath)
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="lambda-mod"
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,3 +89,29 @@ alias server="python -m SimpleHTTPServer"
 eval `dircolors ~/dircolors.256dark`
 export LS_COLORS=$LS_COLORS:"ln=target"  
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# --files: List files that would be searched but do not search
+# # --no-ignore: Do not respect .gitignore, etc...
+# # --hidden: Search hidden files and folders
+# # --follow: Follow symlinks
+# # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+source ~/antigen.zsh
+
+antigen use oh-my-zsh
+
+
+antigen bundle git
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle z
+antigen bundle command-not-found
+
+
+antigen apply
+antigen theme ~/.oh-my-zsh/custom/themes --loc=my_smt --no-local-clone
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
