@@ -1,4 +1,8 @@
 set encoding=utf8
+set mouse+=a
+set nobackup
+" set swapfile
+" set dir=~/tmp
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ File\ Types\ 11
 
@@ -13,6 +17,7 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 " let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+let g:jsx_ext_required = 0
 
 set t_Co=256
 set ts=2 sw=2 et
@@ -55,7 +60,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "  in the .git/ folder)
 "  " --color: Search color options
 
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " alt+o
 noremap Ï <ESC>o
@@ -66,6 +71,9 @@ inoremap Ë <End>;
 
 inoremap Æ <ESC>:Find 
 noremap Æ :Find 
+
+inoremap Õ <ESC>:CtrlPMRU<CR>
+noremap Õ :CtrlPMRU<CR>
 
 noremap Ñ :b#<CR>
 inoremap Ñ <ESC>:b#<CR>
@@ -88,62 +96,69 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
+" JS syntax plug
+" Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'nono/vim-handlebars'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Colorscheme plug
+Plug 'tomasr/molokai'
+Plug 'moskytw/luthadel.vim'
+Plug 'morhetz/gruvbox'
+
+" Completetion related plug
+" Plug 'VundleVim/Vundle.vim'
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
     !./install.sh
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
-Plug 'Valloric/MatchTagAlways'
-" Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
-Plug 'kshenoy/vim-signature'
-Plug 'majutsushi/tagbar'
-Plug 'Chiel92/vim-autoformat'
-Plug 'airblade/vim-gitgutter'
-Plug 'tomasr/molokai'
-Plug 'moskytw/luthadel.vim'
-Plug 'morhetz/gruvbox'
-" Plug 'grassdog/tagman.vim'
-"
 function! BuildTern(info)
   if a:info.status == 'installed' || a:info.force
     !npm install
   endif
 endfunction
 Plug 'marijnh/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'SirVer/ultisnips'
 
+" Navigating plug
+Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'kien/ctrlp.vim'
+Plug 'chusiang/vim-sdcv'
+Plug 'mileszs/ack.vim'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'majutsushi/tagbar'
+Plug 'kshenoy/vim-signature'
+
+" Others plug
+" Plug 'Chiel92/vim-autoformat'
+Plug 'airblade/vim-gitgutter'
+" Plug 'grassdog/tagman.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-repeat'
-Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'chusiang/vim-sdcv'
 " Plug 'dkprice/vim-easygrep'
-Plug 'mileszs/ack.vim'
 " Plug 'xolox/vim-easytags'
 " Plug 'xolox/vim-misc'
 Plug 'tpope/vim-fugitive'
 " Track the engine.
-Plug 'SirVer/ultisnips'
-
+Plug 'tpope/vim-surround'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
-Plug 'nono/vim-handlebars'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'wellle/targets.vim'
 
 call plug#end()
