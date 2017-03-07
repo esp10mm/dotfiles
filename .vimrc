@@ -191,16 +191,17 @@ nnoremap <Leader>l :wincmd l<CR>
 nnoremap <Leader>h :wincmd h<CR>
 
 " easy motion set
-map Á <Plug>(easymotion-prefix)
-map Ál <Plug>(easymotion-lineforward)
-map Áh <Plug>(easymotion-linebackward)
-map Áw <Plug>(easymotion-overwin-w)
-map Áf <Plug>(easymotion-overwin-f)
-map Á; <Plug>(easymotion-bd-w)
+" map Á <Plug>(easymotion-prefix)
+map ; <Plug>(easymotion-prefix)
+" map Ál <Plug>(easymotion-lineforward)
+" map Áh <Plug>(easymotion-linebackward)
+" map Áw <Plug>(easymotion-overwin-w)
+" map Áf <Plug>(easymotion-overwin-f)
+" map Á; <Plug>(easymotion-bd-w)
 
 " Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
