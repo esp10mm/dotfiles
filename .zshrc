@@ -3,6 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=$PATH:"/lib/pytho2.7/site-packages"
 export PATH=$PATH:"/lib/pytho2.7/"
 export DISABLE_AUTO_TITLE=true
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 fpath=(~/zshfunc $fpath)
 

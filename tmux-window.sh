@@ -14,6 +14,8 @@ elif [ "${1}" == "python" ]; then
 	name=" "
 elif [ "${1}" == "node" ]; then
 	name=" "
+elif [ "${1}" == "tig" ]; then
+	name=" "
 fi
 
 # echo "#[fg=colour169, bg=colour235]#[fg=colour255, bg=colour169] #I ⮁ #W $name #[fg=colour169, bg=colour235]"
