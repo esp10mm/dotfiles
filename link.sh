@@ -9,3 +9,4 @@ ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -sf ~/dotfiles/antigen.zsh ~/antigen.zsh
 ln -sf ~/dotfiles/my_smt.zsh-theme ~/.oh-my-zsh/custom/themes/my_smt.zsh-theme
 ln -sf ~/dotfiles/mytheme.sh ~/tmux-powerline/themes/mytheme.sh
+ln -sf ~/dotfiles/i3.config ~/.config/i3/config

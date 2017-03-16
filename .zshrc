@@ -6,6 +6,8 @@ export DISABLE_AUTO_TITLE=true
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
 fpath=(~/zshfunc $fpath)
 
 # Set name of the theme to load.
