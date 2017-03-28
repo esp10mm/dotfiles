@@ -18,6 +18,7 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 " let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:jsx_ext_required = 0
+" let g:jsx_pragma_required = 1
 
 set t_Co=256
 set ts=2 sw=2 et
@@ -101,7 +102,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'nono/vim-handlebars'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -149,6 +151,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 " Plug 'dkprice/vim-easygrep'
 " Plug 'xolox/vim-easytags'
 " Plug 'xolox/vim-misc'
