@@ -90,6 +90,7 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias noexec="chmod -R -x+X -maxdepth 1 *"
 alias server="python -m SimpleHTTPServer"
+# alias ls="ls -a | fzf"
 eval `dircolors ~/dircolors.256dark`
 export LS_COLORS=$LS_COLORS:"ln=target"  
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -100,7 +101,10 @@ PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr 
 # # --hidden: Search hidden files and folders
 # # --follow: Follow symlinks
 # # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND='ls -a'
+export FZF_ALT_C_COMMAND='z -et | awk '"'"'{ print $2 }'"'"' '
 
 source ~/antigen.zsh
 
