@@ -1,4 +1,5 @@
 set encoding=utf8
+let g:syntastic_javascript_checkers = ['flow']
 set mouse+=a
 set nobackup
 " set swapfile
@@ -6,17 +7,6 @@ set nobackup
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ File\ Types\ 11
 
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-let g:webdevicons_enable_ctrlp = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-" let g:webdevicons_conceal_nerdtree_brackets = 0
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
-
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-" let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:jsx_ext_required = 0
 " let g:jsx_pragma_required = 1
 
@@ -102,7 +92,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'nono/vim-handlebars'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -113,7 +102,6 @@ Plug 'moskytw/luthadel.vim'
 Plug 'morhetz/gruvbox'
 
 " Completetion related plug
-" Plug 'VundleVim/Vundle.vim'
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
     !./install.sh
@@ -128,8 +116,27 @@ endfunction
 Plug 'marijnh/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'SirVer/ultisnips'
 
+Plug 'vim-syntastic/syntastic'
+Plug 'happylinks/syntastic-local.vim'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['flow', 'eslint']
+let g:syntastic_javascript_flow_exec = 'flow'
+let g:syntastic_javascript_eslint_exec = 'eslint'
+
 " Navigating plug
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+" let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'chusiang/vim-sdcv'
@@ -150,7 +157,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Plug 'dkprice/vim-easygrep'
 " Plug 'xolox/vim-easytags'
@@ -160,7 +166,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'ervandew/supertab'
+
 Plug 'ryanoasis/vim-devicons'
+let g:webdevicons_enable_ctrlp = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 0
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+
+" Plug 'sbdchd/neoformat'
+" autocmd BufWritePre *.js Neoformat
+
 Plug 'mhinz/vim-startify'
 " Plug 'wellle/targets.vim'
 
@@ -272,3 +289,8 @@ set background=dark
 hi Directory guifg=#FF0000 ctermfg=221
 hi NERDTreeOpenable guifg=#FF0000 ctermfg=203
 hi NERDTreeClosable guifg=#FF0000 ctermfg=203
+
+autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
+" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+
+autocmd Filetype json let g:indentLine_setConceal = 0
