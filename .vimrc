@@ -146,6 +146,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'majutsushi/tagbar'
+Plug 'johngrib/vim-game-code-break'
 Plug 'kshenoy/vim-signature'
 
 " Others plug
