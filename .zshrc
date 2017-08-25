@@ -125,3 +125,4 @@ antigen apply
 antigen theme ~/.oh-my-zsh/custom/themes --loc=my_smt --no-local-clone
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias jest='nocorrect jest'

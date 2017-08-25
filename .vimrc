@@ -1,7 +1,7 @@
 set encoding=utf8
-let g:syntastic_javascript_checkers = ['flow']
 set mouse+=a
 set nobackup
+set hlsearch
 " set swapfile
 " set dir=~/tmp
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
@@ -125,8 +125,7 @@ Plug 'happylinks/syntastic-local.vim'
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['flow', 'eslint']
-let g:syntastic_javascript_flow_exec = 'flow'
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint'
 
 " Navigating plug
@@ -145,6 +144,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/MatchTagAlways'
+nnoremap % :MtaJumpToOtherTag<CR>%
 Plug 'majutsushi/tagbar'
 Plug 'johngrib/vim-game-code-break'
 Plug 'kshenoy/vim-signature'
@@ -291,7 +291,7 @@ hi Directory guifg=#FF0000 ctermfg=221
 hi NERDTreeOpenable guifg=#FF0000 ctermfg=203
 hi NERDTreeClosable guifg=#FF0000 ctermfg=203
 
-autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
+" autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
 autocmd Filetype json let g:indentLine_setConceal = 0
