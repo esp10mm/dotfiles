@@ -20,7 +20,7 @@ fi
 
 # echo "#[fg=colour169, bg=colour235]#[fg=colour255, bg=colour169] #I ⮁ #W $name #[fg=colour169, bg=colour235]"
 if [ "${2}" == "current" ]; then
-  echo "#[fg=colour169, bg=colour235]#[fg=colour255, bg=colour169] #I $name #[fg=colour169, bg=colour235]"
+  echo "#[fg=colour132, bg=colour235]#[fg=colour255, bg=colour132] #I $name #[fg=colour132, bg=colour235]"
 else
   # echo "#[fg=colour169, bg=colour235]#[fg=colour255, bg=colour169] #I $name #[fg=colour169, bg=colour235]"
   echo "#I $name"
