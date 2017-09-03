@@ -8,7 +8,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-eval $(thefuck --alias) 
+# eval $(thefuck --alias) 
 fpath=(~/zshfunc $fpath)
 
 # Set name of the theme to load.
