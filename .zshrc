@@ -6,6 +6,7 @@ export PATH="$PATH:./node_modules/.bin"
 export DISABLE_AUTO_TITLE=true
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export TERM=xterm-256color
 
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 # eval $(thefuck --alias) 
