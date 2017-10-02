@@ -1,4 +1,4 @@
-sudo apt-get install git curl i3blocks konsole tmux rofi tmuxinator ranger fonts-font-awesome
+sudo apt-get install git curl i3blocks konsole tmux rofi tmuxinator ranger fonts-font-awesome feh
 
 cd ~
 git clone https://github.com/erikw/tmux-powerline.git

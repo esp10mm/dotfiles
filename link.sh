@@ -13,3 +13,5 @@ ln -sf ~/dotfiles/i3.config ~/.config/i3/config
 ln -sf ~/dotfiles/i3blocks.conf ~/.i3blocks.conf
 ln -sf ~/dotfiles/my_rofi.sh ~/my_rofi.sh
 ln -sf ~/dotfiles/wall.png ~/wall.png
+ln -sf ~/dotfiles/Gruvbox_dark_konsole.colorscheme  ~/.local/share/konsole
+ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole
