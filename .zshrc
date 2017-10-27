@@ -57,7 +57,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(python emoji git z npm)
+plugins=(python emoji git z npm docker docker-compose)
 
 # User configuration
 
@@ -114,6 +114,7 @@ antigen use oh-my-zsh
 
 
 antigen bundle git
+# antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
