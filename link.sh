@@ -1,3 +1,7 @@
+mkdir ~/.oh-my-zsh/custom/themes
+mkdir ~/.config/i3/
+mkdir ~/.local/share/konsole  
+
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
@@ -13,5 +17,5 @@ ln -sf ~/dotfiles/i3.config ~/.config/i3/config
 ln -sf ~/dotfiles/i3blocks.conf ~/.i3blocks.conf
 ln -sf ~/dotfiles/my_rofi.sh ~/my_rofi.sh
 ln -sf ~/dotfiles/wall.png ~/wall.png
-ln -sf ~/dotfiles/Gruvbox_dark_konsole.colorscheme  ~/.local/share/konsole
-ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole
+ln -sf ~/dotfiles/Gruvbox_dark_konsole.colorscheme  ~/.local/share/konsole/Gruvbox.colorscheme
+ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole/konsole.profile
