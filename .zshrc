@@ -91,7 +91,7 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias noexec="chmod -R -x+X -maxdepth 1 *"
-alias server="python -m SimpleHTTPServer"
+# alias server="python -m SimpleHTTPServer"
 # alias ls="ls -a | fzf"
 eval `dircolors ~/dircolors.256dark`
 export LS_COLORS=$LS_COLORS:"ln=target"  
@@ -128,3 +128,9 @@ antigen theme ~/.oh-my-zsh/custom/themes --loc=my_smt --no-local-clone
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias jest='nocorrect jest'
+alias ggpf='git push origin $(git_current_branch) -f'
+
+#function that retrieves the current branch name
+git_current_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}

@@ -5,13 +5,10 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 
 # softwares
-sudo apt-get install -y vim git zsh curl i3blocks konsole tmux rofi tmuxinator ranger fonts-font-awesome feh
+sudo apt-get install -y vim git zsh curl i3blocks konsole tmux rofi tmuxinator ranger fonts-font-awesome feh xclip
 
 cd ~
 git clone https://github.com/erikw/tmux-powerline.git
-
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -46,3 +43,6 @@ sudo make install
 cd /usr/share/fonts/truetype
 sudo wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Retina/complete/Fura%20Code%20Retina%20Nerd%20Font%20Complete%20Mono.otf
 sudo fc-cache -f -v 
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
