@@ -3,6 +3,8 @@ mkdir ~/.config/i3/
 mkdir ~/.local/share/konsole  
 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/snippets ~/.vim/snippets
+ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/tmux-window.sh ~/tmux-window.sh

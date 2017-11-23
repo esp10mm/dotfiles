@@ -50,7 +50,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "  " --glob: Additional conditions for search (in this case ignore everything
 "  in the .git/ folder)
 "  " --color: Search color options
+"
 
+command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " alt+o
@@ -63,8 +65,12 @@ inoremap Ë <End>;
 inoremap Æ <ESC>:Find 
 noremap Æ :Find 
 
-inoremap Õ <ESC>:CtrlPMRU<CR>
-noremap Õ :CtrlPMRU<CR>
+inoremap Õ <ESC>:MRU<CR>
+noremap Õ :MRU<CR>
+
+" command history
+inoremap É <ESC>:History:<CR>
+noremap É :History:<CR>
 
 noremap Ñ :b#<CR>
 inoremap Ñ <ESC>:b#<CR>
@@ -181,6 +187,7 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 Plug 'mhinz/vim-startify'
 " Plug 'wellle/targets.vim'
+Plug 'janko-m/vim-test'
 
 call plug#end()
 

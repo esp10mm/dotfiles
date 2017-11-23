@@ -18,7 +18,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 sudo apt-get install -y python-dev libxml2-dev libxslt-dev cmake
 
 # script for i3 gaps
-sduo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf
+sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf libev-dev libstartup-notification0-dev
 cd ~
 git clone --recursive https://github.com/Airblader/xcb-util-xrm.git
 cd xcb-util-xrm/
@@ -29,7 +29,7 @@ cat > /etc/ld.so.conf.d/i3.conf
 sudo ldconfig
 sudo ldconfig -p
 cd ~
-git clone https://github.com/maestrogerardo/i3-gaps-deb.git
+git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps
 autoreconf --force --install
 rm -Rf build/
