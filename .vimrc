@@ -53,11 +53,11 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "
 
 command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!__snapshots__/" --glob "!coverage/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " alt+o
-noremap Ï <ESC>o
-inoremap Ï <ESC>o
+map Ï <ESC>o
+map Ï <ESC>o
 
 inoremap Ê <ESC>
 inoremap Ë <End>;
@@ -188,6 +188,7 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 Plug 'mhinz/vim-startify'
 " Plug 'wellle/targets.vim'
 Plug 'janko-m/vim-test'
+Plug 'XadillaX/json-formatter.vim'
 
 call plug#end()
 
@@ -250,9 +251,9 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
 " hotkey setup
+map Ó <Esc>:Gstatus<CR>
 map <Leader>n <Esc>:let @*=line(".")<CR>
 map <Leader>b <Esc>:NERDTreeToggle<CR>
-map <Leader>g <Esc>:Gstatus<CR>
 map <Leader>] <Esc>:set paste<CR>
 map <Leader>[ <Esc>:set nopaste<CR>
 map <Leader>f <Esc>:set fdm=indent<CR>
@@ -302,3 +303,7 @@ hi NERDTreeClosable guifg=#FF0000 ctermfg=203
 " autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
 autocmd Filetype json let g:indentLine_setConceal = 0
+
+function Meow()
+  echom "Meow!"
+endfunction
