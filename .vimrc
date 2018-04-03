@@ -2,13 +2,8 @@ set encoding=utf8
 set mouse+=a
 set nobackup
 set hlsearch
-" set swapfile
-" set dir=~/tmp
-" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
-" set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ File\ Types\ 11
 
 let g:jsx_ext_required = 0
-" let g:jsx_pragma_required = 1
 
 set t_Co=256
 set ts=2 sw=2 et
@@ -23,9 +18,7 @@ set timeoutlen=1000 ttimeoutlen=0
 set clipboard=unnamedplus
 
 let g:molokai_original = 1
-" let g:rehash256 = 1
 
-" fix meta-keys which generate <Esc>a .. <Esc>z
 let c='a'
 while c <= 'z'
   exec "set <M-".toupper(c).">=\e".c
@@ -38,19 +31,6 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" --column: Show column number
-"  " --line-number: Show line number
-"  " --no-heading: Do not show file headings in results
-"  " --fixed-strings: Search term as a literal string
-"  " --ignore-case: Case insensitive search
-"  " --no-ignore: Do not respect .gitignore, etc...
-"  " --hidden: Search hidden files and folders
-"  " --follow: Follow symlinks
-"  " --glob: Additional conditions for search (in this case ignore everything
-"  in the .git/ folder)
-"  " --color: Search color options
-"
 
 command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!__snapshots__/" --glob "!coverage/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
@@ -124,13 +104,6 @@ Plug 'SirVer/ultisnips'
 
 Plug 'vim-syntastic/syntastic'
 Plug 'happylinks/syntastic-local.vim'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint'
 
@@ -187,8 +160,6 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 Plug 'mhinz/vim-startify'
 " Plug 'wellle/targets.vim'
-Plug 'janko-m/vim-test'
-Plug 'XadillaX/json-formatter.vim'
 
 call plug#end()
 
@@ -207,8 +178,6 @@ let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
 
 " au BufWrite * :Autoformat
-noremap <F3> :Autoformat<CR>
-
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nmap <leader>e :call SearchWord()<CR>
@@ -267,19 +236,10 @@ vmap <Leader>P "+P
 
 nmap <F8> :TagbarToggle<CR>
 
-" inoremap <C-j> <ESC>
-
-" plugin setup
-" execute pathogen#infect()
 
 syntax on
 
 filetype plugin indent on
-
-colorscheme gruvbox
-" let g:monokai_italic = 1
-" let g:monokai_thick_border = 1
-" let g:monokai_zentree = 1
 
 " let g:indent_guides_guide_size=1
 " let g:indent_guides_enable_on_vim_startup = 1
@@ -298,9 +258,6 @@ set background=dark
 hi Directory guifg=#FF0000 ctermfg=221
 hi NERDTreeOpenable guifg=#FF0000 ctermfg=203
 hi NERDTreeClosable guifg=#FF0000 ctermfg=203
-
-" autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin
-" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
 
 autocmd Filetype json let g:indentLine_setConceal = 0
 
