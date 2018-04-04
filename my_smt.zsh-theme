@@ -81,7 +81,7 @@ function git_time_since_commit() {
 }
 
 PROMPT='
-%{$fg[cyan]%} %m%{$reset_color%} %{$FG[221]%}%  %~ %{$reset_color%}$(git_prompt_short_sha)$(git_prompt_info)  %*
+%{$fg[cyan]%} %m%{$reset_color%} %{$FG[yello]%}%  %~ %{$reset_color%}$(git_prompt_short_sha)$(git_prompt_info)  %*
 %{$fg[red]%} %!%{$reset_color%} $(prompt_char) : '
 
 RPROMPT='${return_status}$(git_time_since_commit)$(git_prompt_status)%{$reset_color%}'

@@ -3,6 +3,9 @@ set mouse+=a
 set nobackup
 set hlsearch
 
+" for hyper to not break the first line
+set t_RV=
+
 let g:jsx_ext_required = 0
 
 set t_Co=256
@@ -83,9 +86,9 @@ Plug 'nono/vim-handlebars'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Colorscheme plug
-Plug 'tomasr/molokai'
-Plug 'moskytw/luthadel.vim'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'dylanaraps/wal.vim' " pywal theme
+
 
 " Completetion related plug
 function! BuildYCM(info)
@@ -238,26 +241,25 @@ nmap <F8> :TagbarToggle<CR>
 
 
 syntax on
+colorscheme wal
 
 filetype plugin indent on
 
 " let g:indent_guides_guide_size=1
 " let g:indent_guides_enable_on_vim_startup = 1
 
+" airline color
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:loaded_airline_themes=1
-" let g:airline_symbols.linenr = ':'
-let g:airline_theme='tomorrow'
 
-set background=dark
+" set background=dark
 
 " NERDTree color
-hi Directory guifg=#FF0000 ctermfg=221
-hi NERDTreeOpenable guifg=#FF0000 ctermfg=203
-hi NERDTreeClosable guifg=#FF0000 ctermfg=203
+" hi Directory guifg=#FF0000 ctermfg=221
+" hi NERDTreeOpenable guifg=#FF0000 ctermfg=203
+" hi NERDTreeClosable guifg=#FF0000 ctermfg=203
 
 autocmd Filetype json let g:indentLine_setConceal = 0
 

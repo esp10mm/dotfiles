@@ -93,7 +93,7 @@ export LANG=en_US.UTF-8
 alias noexec="chmod -R -x+X -maxdepth 1 *"
 # alias server="python -m SimpleHTTPServer"
 # alias ls="ls -a | fzf"
-eval `dircolors ~/dircolors.256dark`
+# eval `dircolors ~/dircolors.256dark`
 export LS_COLORS=$LS_COLORS:"ln=target"  
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
@@ -134,3 +134,6 @@ alias ggpf='git push origin $(git_current_branch) -f'
 git_current_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
+
+(wal -i ~/wall.png &)
+

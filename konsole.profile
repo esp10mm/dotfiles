@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Gruvbox
+ColorScheme=Wal
 Font=FuraCode Nerd Font Mono,12,-1,5,53,0,0,0,0,0
 
 [General]
