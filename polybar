@@ -53,9 +53,9 @@ module-margin-left = 0
 ;modules-center = mpd
 ;modules-left = cpu memory filesystem
 
-modules-right = volume cpu memory im battery menu0
+modules-right = volume cpu memory im battery wlan menu0
 modules-center = date
-modules-left = i3
+modules-left =  i3
 
 separator = "      "
 
@@ -67,12 +67,13 @@ foreground = ${colors.modfg}
 ;underline-size = 4
 ;underline-color = ${colors.modfg}
 
-font-0 = micro:weight=regular:size=9;3
-font-1 = FontAwesome:size=10;3
-font-2 = IPAPgothic:weight=regular:size=10;3
-font-3 = FontAwesome 5 Free:size=10:style=Solid;3
-font-4 = unifont:size=10;3
-font-5 = Noto Sans CJK TC:pixelsize=9:style=Bold;3
+font-0 = SanaFon,さなフォン:weight=bold:size=14;3
+font-1 = FontAwesome:size=12;3
+font-2 = IPAPgothic:weight=regular:size=12;3
+font-3 = FontAwesome 5 Free:size=12:style=Solid;3
+font-4 = unifont:size=12;3
+font-5 = Noto Sans CJK TC:pixelsize=14:style=Bold;3
+font-6 = micro:weight=regular:size=14;3
 
 [module/xwindow]
 type = internal/xwindow
@@ -159,10 +160,12 @@ toggle-off-foreground = #66
 
 
 [module/backlight]
-type = internal/xbacklight
+type = internal/backlight
 
 format = <label> <bar>
 label = BL
+
+card = intel_backlight
 
 bar-width = 10
 bar-indicator = │
@@ -213,7 +216,7 @@ label = "M %percentage_used%%"
 
 [module/wlan]
 type = internal/network
-interface = enp2s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected-padding = 1
@@ -258,31 +261,30 @@ interval = 5
 
 [module/volume]
 type = internal/volume
+format-volume= VOL <bar-volume>
 
-format-volume = <bar-volume>
-
-label-volume = VOL
 label-volume-foreground = ${colors.fg}
+
 
 label-muted =  sound muted
 label-muted-foreground = ${colors.gray}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.green}
-bar-volume-foreground-1 = ${colors.green}
-bar-volume-foreground-2 = ${colors.green}
-bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.yellow}
-bar-volume-foreground-5 = ${colors.red}
+bar-volume-foreground-0 = ${colors.fg}
+bar-volume-foreground-1 = ${colors.fg}
+bar-volume-foreground-2 = ${colors.fg}
+bar-volume-foreground-3 = ${colors.fg}
+bar-volume-foreground-4 = ${colors.fg}
+bar-volume-foreground-5 = ${colors.fg}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-font = 4
-bar-volume-indicator-foreground = ${colors.white}
+bar-volume-indicator-foreground = ${colors.fg}
 bar-volume-fill = 
 bar-volume-fill-font = 4
 bar-volume-empty = 
 bar-volume-empty-font = 4
-bar-volume-empty-foreground = ${colors.gray}
+bar-volume-empty-foreground = ${colors.fg}
 
 
 [module/battery]
@@ -307,14 +309,14 @@ format-full-padding = 1
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.white}
+; ramp-capacity-foreground = ${colors.fg}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.white}
+; animation-charging-foreground = ${colors.fg}
 animation-charging-framerate = 500
 
 
@@ -342,6 +344,8 @@ format-padding = 1
 
 menu-0-0 = " shutdown "
 menu-0-0-exec = shutdown now
+; menu-0-1 = " suspend "
+; menu-0-1-exec = pm-suspend
 menu-0-1 = " restart "
 menu-0-1-exec = shutdown -r now
 menu-0-2 =   cancel

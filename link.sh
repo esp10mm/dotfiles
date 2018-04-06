@@ -1,5 +1,6 @@
 mkdir ~/.oh-my-zsh/custom/themes
 mkdir ~/.config/i3/
+mkdir ~/.config/polybar/
 mkdir ~/.local/share/konsole  
 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
