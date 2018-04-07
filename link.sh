@@ -21,6 +21,8 @@ ln -sf ~/dotfiles/my_smt.zsh-theme ~/.oh-my-zsh/custom/themes/my_smt.zsh-theme
 ln -sf ~/dotfiles/i3.config ~/.config/i3/config
 ln -sf ~/dotfiles/i3blocks.conf ~/.i3blocks.conf
 
+ln -sf ~/dotfiles/rofi.config ~/.config/rofi/config
+
 ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole/konsole.profile
 
 ln -sf ~/dotfiles/wallpapers ~/wallpapers
