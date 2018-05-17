@@ -28,6 +28,7 @@ ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole/konsole.profile
 ln -sf ~/dotfiles/wallpapers ~/wallpapers
 
 ln -sf ~/dotfiles/polybar ~/.config/polybar/config
+ln -sf ~/dotfiles/hyper.js ~/.hyper.js
 
 ln -sf ~/dotfiles/scripts ~/.scripts
 
