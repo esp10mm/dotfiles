@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 18,
+    fontSize: 16,
 
     // font family with optional fallbacks
-    fontFamily: '"FuraCode Nerd Font Mono:style=Retina,Regular", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"FuraCode Nerd Font Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -46,7 +46,24 @@ module.exports = {
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '',
+    css: `
+      @keyframes fadeOut {
+        80% {
+          opacity: 1;
+        }
+        99% {
+          dispaly: block;
+        }
+        100% {
+          display: none;
+          opacity: 0;
+        }
+      }
+      .notifications_view {
+        animation: fadeOut ease 5s;
+        animation-fill-mode: forwards;
+      }
+    `,
 
     // custom CSS to embed in the terminal window
     termCSS: '',
@@ -61,7 +78,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '12px 0px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -134,13 +151,18 @@ module.exports = {
   plugins: [
     'hyper-wal',
     'hyperminimal',
+    'hyperpower',
+    'hyperlinks',
+    'hyper-tabs-enhanced',
+    // 'hypergoogle',
   ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [],
-
+  localPlugins: [
+    // 'hyperdocs',
+  ],
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
