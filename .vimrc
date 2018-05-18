@@ -15,7 +15,6 @@ set autoindent
 set nu
 set nobackup
 set hidden
-set foldmethod=manual
 se nosol
 set timeoutlen=1000 ttimeoutlen=0
 set clipboard=unnamedplus
@@ -151,6 +150,7 @@ Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 
 Plug 'ryanoasis/vim-devicons'
+
 let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -160,6 +160,16 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Plug 'sbdchd/neoformat'
 " autocmd BufWritePre *.js Neoformat
+
+set foldenable
+set foldmethod=syntax
+set foldlevelstart=99
+set foldcolumn=0
+Plug 'Konfekt/FastFold'
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 Plug 'mhinz/vim-startify'
 " Plug 'wellle/targets.vim'
@@ -186,19 +196,19 @@ nnoremap <Leader>w :w<CR>
 nmap <leader>e :call SearchWord()<CR>
 
 " tab switch
-nnoremap <Leader>j :wincmd j<CR>
-nnoremap <Leader>k :wincmd k<CR>
-nnoremap <Leader>l :wincmd l<CR>
-nnoremap <Leader>h :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-h> :wincmd h<CR>
 
 " easy motion set
-map Á <Plug>(easymotion-prefix)
+map <Leader> <Plug>(easymotion-prefix)
 " map ; <Plug>(easymotion-prefix)
-map Ál <Plug>(easymotion-lineforward)
-map Áh <Plug>(easymotion-linebackward)
-map Áw <Plug>(easymotion-overwin-w)
-map Áf <Plug>(easymotion-overwin-f)
-map Á; <Plug>(easymotion-bd-w)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>h <Plug>(easymotion-linebackward)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
+" map <Leader>f <Plug>(easymotion-overwin-f)
+map <Leader>; <Plug>(easymotion-bd-w)
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -226,16 +236,15 @@ let g:EasyMotion_use_smartsign_us = 1
 map Ó <Esc>:Gstatus<CR>
 map <Leader>n <Esc>:let @*=line(".")<CR>
 map <Leader>b <Esc>:NERDTreeToggle<CR>
-map <Leader>] <Esc>:set paste<CR>
-map <Leader>[ <Esc>:set nopaste<CR>
-map <Leader>f <Esc>:set fdm=indent<CR>
+" map <Leader>] <Esc>:set paste<CR>
+" map <Leader>[ <Esc>:set nopaste<CR>
 
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+" vmap <Leader>y "+y
+" vmap <Leader>d "+d
+" nmap <Leader>p "+p
+" nmap <Leader>P "+P
+" vmap <Leader>p "+p
+" vmap <Leader>P "+P
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -262,7 +271,3 @@ endif
 " hi NERDTreeClosable guifg=#FF0000 ctermfg=203
 
 autocmd Filetype json let g:indentLine_setConceal = 0
-
-function Meow()
-  echom "Meow!"
-endfunction
