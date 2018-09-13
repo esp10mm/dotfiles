@@ -104,16 +104,22 @@ endfunction
 Plug 'marijnh/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'SirVer/ultisnips'
 
-Plug 'vim-syntastic/syntastic'
-Plug 'happylinks/syntastic-local.vim'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
+Plug 'w0rp/ale'
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+" Plug 'vim-syntastic/syntastic'
+" Plug 'happylinks/syntastic-local.vim'
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec = 'eslint'
 
 " Navigating plug
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
+let NERDTreeIgnore = ['\.swp$']
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 " let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
@@ -153,6 +159,7 @@ Plug 'ryanoasis/vim-devicons'
 
 let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let NERDTreeShowHidden=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 " let g:webdevicons_conceal_nerdtree_brackets = 0
