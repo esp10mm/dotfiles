@@ -1,11 +1,8 @@
-# add vim
-sudo add-apt-repository ppa:jonathonf/vim
-
 # apt update
 sudo apt update
 
 # softwares
-sudo apt-get install -y vim git zsh curl i3blocks konsole tmux rofi tmuxinator ranger fonts-font-awesome feh xclip
+sudo apt-get install -y vim git zsh curl i3blocks tmux rofi tmuxinator ranger fonts-font-awesome feh xclip
 
 cd ~
 git clone https://github.com/erikw/tmux-powerline.git

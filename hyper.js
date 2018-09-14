@@ -151,9 +151,9 @@ module.exports = {
   plugins: [
     'hyper-wal',
     'hyperminimal',
-    'hyperpower',
-    'hyperlinks',
-    'hyper-tabs-enhanced',
+//    'hyperpower',
+//    'hyperlinks',
+//    'hyper-tabs-enhanced',
     // 'hypergoogle',
   ],
 
