@@ -2,7 +2,8 @@
 sudo apt update
 
 # softwares
-sudo apt-get install -y vim git zsh curl i3blocks tmux rofi tmuxinator ranger fonts-font-awesome feh xclip
+sudo apt-get install -y arandr vim git zsh curl i3blocks tmux rofi tmuxinator ranger fonts-font-awesome feh xclip python3-pip
+sudo pip3 install pywal
 
 cd ~
 git clone https://github.com/erikw/tmux-powerline.git
@@ -36,7 +37,17 @@ cd build/
 make
 sudo make install
 
+# install poly bar
+sudo apt-get install xcb-proto xcb-ewmh libxcb-ewmh-dev python-xcbgen
+cd ~
+git clone --branch 3.2 --recursive https://github.com/jaagr/polybar
+mkdir polybar/build
+cd polybar/build
+cmake ..
+sudo make install
+
 # font
+sudo cp ~/dotfiles/mulders-handwriting.ttf /usr/share/fonts/truetype
 cd /usr/share/fonts/truetype
 sudo wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Retina/complete/Fura%20Code%20Retina%20Nerd%20Font%20Complete%20Mono.otf
 sudo fc-cache -f -v 

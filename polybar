@@ -67,13 +67,12 @@ foreground = ${colors.modfg}
 ;underline-size = 4
 ;underline-color = ${colors.modfg}
 
-; font-0 = SanaFon,さなフォン:weight=bold:size=14;3
-font-0 = HolidayMDJP05:weight=regular:size=14;3
+font-0 = Mulder's Handwriting:style=Regular:size=14;3
 font-1 = FontAwesome:size=12;3
 font-2 = IPAPgothic:weight=regular:size=12;3
 font-3 = FontAwesome 5 Free:size=12:style=Solid;3
 font-4 = unifont:size=12;3
-font-5 = Noto Sans CJK TC:pixelsize=14:style=Bold;3
+font-5 = Noto Sans CJK TC:pixelsize=14:style=regular;3
 font-6 = micro:weight=regular:size=14;3
 
 [module/xwindow]

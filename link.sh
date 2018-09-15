@@ -23,8 +23,6 @@ ln -sf ~/dotfiles/i3blocks.conf ~/.i3blocks.conf
 
 ln -sf ~/dotfiles/rofi.config ~/.config/rofi/config
 
-ln -sf ~/dotfiles/konsole.profile ~/.local/share/konsole/konsole.profile
-
 ln -sf ~/dotfiles/wallpapers ~/wallpapers
 
 ln -sf ~/dotfiles/polybar ~/.config/polybar/config
