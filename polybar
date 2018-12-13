@@ -67,7 +67,7 @@ foreground = ${colors.modfg}
 ;underline-size = 4
 ;underline-color = ${colors.modfg}
 
-font-0 = Mulder's Handwriting:style=Regular:size=14;3
+font-0 = VT323:style=Regular:size=15;3
 font-1 = FontAwesome:size=12;3
 font-2 = IPAPgothic:weight=regular:size=12;3
 font-3 = FontAwesome 5 Free:size=12:style=Solid;3

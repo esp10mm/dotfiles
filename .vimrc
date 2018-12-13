@@ -81,7 +81,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'nono/vim-handlebars'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Colorscheme plug

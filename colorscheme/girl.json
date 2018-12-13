@@ -1,0 +1,27 @@
+{
+    "colors": {
+        "color4": "#D09D88",
+        "color12": "#D09D88",
+        "color8": "#9b9695",
+        "color14": "#D6B9A8",
+        "color1": "#CE9178",
+        "color0": "#251621",
+        "color6": "#D6B9A8",
+        "color10": "#697985",
+        "color3": "#688894",
+        "color7": "#ded7d6",
+        "color13": "#D9AF94",
+        "color11": "#688894",
+        "color15": "#ded7d6",
+        "color2": "#697985",
+        "color5": "#D9AF94",
+        "color9": "#CE9178"
+    },
+    "wallpaper": "/home/patrick/wall.png",
+    "special": {
+        "cursor": "#ded7d6",
+        "background": "#251621",
+        "foreground": "#ded7d6"
+    },
+    "alpha": "100"
+}

@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 16,
+    fontSize: 23,
 
     // font family with optional fallbacks
-    fontFamily: '"FuraCode Nerd Font Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'VT323, "FuraCode Nerd Font Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -150,6 +150,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyper-wal',
+    'hyper-font-ligatures',
     'hyperminimal',
 //    'hyperpower',
 //    'hyperlinks',
