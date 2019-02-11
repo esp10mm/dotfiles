@@ -8,7 +8,16 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export TERM=xterm-256color
 
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+# Configure android emulator to run directly in terminal.
+function emulator { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"; ) }
+# Set alias to shorten command and also fix the side-effect
+alias emu="$ANDROID_HOME/tools/emulator"
+
+# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 # eval $(thefuck --alias) 
 fpath=(~/zshfunc $fpath)
 
@@ -114,11 +123,11 @@ antigen use oh-my-zsh
 
 
 antigen bundle git
-# antigen bundle docker
+antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle rupa/z
+# antigen bundle rupa/z
 antigen bundle changyuheng/fz
 antigen bundle command-not-found
 

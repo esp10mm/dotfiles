@@ -34,7 +34,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
+command! -bang -nargs=* MRU call fzf#vim#history()
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!__snapshots__/" --glob "!coverage/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " alt+o
@@ -68,6 +68,7 @@ nnoremap × :bdelete<CR>
 let g:closetag_filenames = "*.ejs,*.html,*.xhtml,*.phtml"
 let b:did_indent = 1
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 " vundle setup
 set nocompatible
@@ -125,7 +126,6 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'chusiang/vim-sdcv'
-Plug 'mileszs/ack.vim'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
@@ -142,6 +142,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
+
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
@@ -268,8 +270,6 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-
-" set background=dark
 
 " NERDTree color
 " hi Directory guifg=#FF0000 ctermfg=221
