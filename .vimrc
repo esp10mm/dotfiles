@@ -31,8 +31,8 @@ endw
 let g:ctrlp_map = 'Ð'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 
 command! -bang -nargs=* MRU call fzf#vim#history()
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!__snapshots__/" --glob "!coverage/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
@@ -90,19 +90,23 @@ Plug 'dylanaraps/wal.vim' " pywal theme
 
 
 " Completetion related plug
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.sh
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-function! BuildTern(info)
-  if a:info.status == 'installed' || a:info.force
-    !npm install
-  endif
-endfunction
-Plug 'marijnh/tern_for_vim', { 'do': function('BuildTern') }
-Plug 'SirVer/ultisnips'
+" function! BuildYCM(info)
+"   if a:info.status == 'installed' || a:info.force
+"     !./install.sh
+"   endif
+" endfunction
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+" Plug 'SirVer/ultisnips'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> ge <Plug>(coc-declaration)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 Plug 'w0rp/ale'
 let g:ale_fixers = {
@@ -126,7 +130,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'chusiang/vim-sdcv'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/MatchTagAlways'
@@ -185,8 +189,8 @@ Plug 'mhinz/vim-startify'
 call plug#end()
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -241,9 +245,9 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
 " hotkey setup
-map Ó <Esc>:Gstatus<CR>
 map <Leader>n <Esc>:let @*=line(".")<CR>
 map <Leader>b <Esc>:NERDTreeToggle<CR>
+map <Leader>h <Esc>:History:<CR>
 " map <Leader>] <Esc>:set paste<CR>
 " map <Leader>[ <Esc>:set nopaste<CR>
 
