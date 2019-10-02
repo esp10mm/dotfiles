@@ -8,3 +8,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[webui]
+	autoupdate = true
+[alias]
+	webui = !/home/patrick/.git-webui/release/libexec/git-core/git-webui

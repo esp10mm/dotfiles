@@ -64,6 +64,7 @@ inoremap Î <ESC>:bprevious<CR>
 inoremap Í <ESC>:bnext<CR> 
 nnoremap × :bdelete<CR>
 
+autocmd FileType which_key highlight Pmenu guibg=black ctermbg=black
 
 let g:closetag_filenames = "*.ejs,*.html,*.xhtml,*.phtml"
 let b:did_indent = 1
@@ -76,6 +77,9 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+" let g:which_key_vertical = 1
+Plug 'liuchengxu/vim-which-key'
+
 " JS syntax plug
 " Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -84,8 +88,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Colorscheme plug
-" Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim' " pywal theme
 
 
@@ -96,7 +98,10 @@ Plug 'dylanaraps/wal.vim' " pywal theme
 "   endif
 " endfunction
 " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
+Plug 'liuchengxu/vista.vim'
+let g:vista_default_executive = 'coc'
+
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
@@ -108,11 +113,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-Plug 'w0rp/ale'
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_fix_on_save = 1
+
+" Plug 'w0rp/ale'
+" let g:ale_fixers = {
+" \   'javascript': ['eslint'],
+" \}
+" let g:ale_fix_on_save = 1
+" let g:ale_set_balloons = 1
 " Plug 'vim-syntastic/syntastic'
 " Plug 'happylinks/syntastic-local.vim'
 " let g:syntastic_javascript_checkers = ['eslint']
@@ -128,15 +135,15 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 " let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 Plug 'easymotion/vim-easymotion'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'chusiang/vim-sdcv'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/MatchTagAlways'
-nnoremap % :MtaJumpToOtherTag<CR>%
-Plug 'majutsushi/tagbar'
-Plug 'johngrib/vim-game-code-break'
+" Plug 'Valloric/MatchTagAlways'
+" nnoremap % :MtaJumpToOtherTag<CR>%
+" Plug 'majutsushi/tagbar'
+" Plug 'johngrib/vim-game-code-break'
 Plug 'kshenoy/vim-signature'
 
 " Others plug
@@ -205,7 +212,13 @@ let g:mapleader = "\<Space>"
 " au BufWrite * :Autoformat
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
-nmap <leader>e :call SearchWord()<CR>
+
+nnoremap <leader><leader> :WhichKey '<Space>'<CR>
+highlight Pmenu ctermbg=red guibg=red
+"autocmd FileType which_key highlight WhichKeySeperator guibg=red ctermbg=red
+"autocmd FileType which_key highlight WhichKey guibg=red ctermbg=red
+"autocmd FileType which_key highlight WhichKeyGroup guibg=red ctermbg=red
+"autocmd FileType which_key highlight WhichKeyDesc guibg=red ctermbg=red
 
 " tab switch
 nnoremap <C-j> :wincmd j<CR>
@@ -216,8 +229,8 @@ nnoremap <C-h> :wincmd h<CR>
 " easy motion set
 map <Leader> <Plug>(easymotion-prefix)
 " map ; <Plug>(easymotion-prefix)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>h <Plug>(easymotion-linebackward)
+" map <Leader>l <Plug>(easymotion-lineforward)
+" map <Leader>h <Plug>(easymotion-linebackward)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
 " map <Leader>f <Plug>(easymotion-overwin-f)
 map <Leader>; <Plug>(easymotion-bd-w)
@@ -245,9 +258,13 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
 " hotkey setup
-map <Leader>n <Esc>:let @*=line(".")<CR>
 map <Leader>b <Esc>:NERDTreeToggle<CR>
-map <Leader>h <Esc>:History:<CR>
+map <Leader>h <Esc>:History<CR>
+map <Leader>l <Esc>:Lines<CR>
+map <Leader>c <Esc>:Commits<CR>
+map <Leader>g <Esc>:Gstatus<CR>
+map <Leader>b <Esc>:BCommits<CR>
+map <Leader>f <Esc>:GFiles<CR>
 " map <Leader>] <Esc>:set paste<CR>
 " map <Leader>[ <Esc>:set nopaste<CR>
 
@@ -257,9 +274,6 @@ map <Leader>h <Esc>:History:<CR>
 " nmap <Leader>P "+P
 " vmap <Leader>p "+p
 " vmap <Leader>P "+P
-
-nmap <F8> :TagbarToggle<CR>
-
 
 syntax on
 colorscheme wal

@@ -6,6 +6,8 @@ export PATH="$PATH:./node_modules/.bin"
 export DISABLE_AUTO_TITLE=true
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export CARGO_PATH=$HOME/.cargo/bin
+export PATH=$PATH:$CARGO_PATH
 export TERM=xterm-256color
 
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -145,3 +147,5 @@ git_current_branch() {
 }
 
 # (wal -i ~/wall.png &)
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
