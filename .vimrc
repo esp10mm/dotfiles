@@ -35,7 +35,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 
 command! -bang -nargs=* MRU call fzf#vim#history()
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!assets/" --glob "!public/" --glob "!__snapshots__/" --glob "!coverage/" --glob "!semantic/" --glob "!dist/*" --glob "!build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --ignore-case --hidden --follow --ignore-file "assets/" --ignore-file "public/" --ignore-file "__snapshots__/" --ignore-file "coverage/" --ignore-file "semantic/" --ignore-file "dist/*" --ignore-file "build/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, {'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}, <bang>0)
 
 " alt+o
 map Ï <ESC>o
@@ -79,16 +79,20 @@ call plug#begin('~/.vim/plugged')
 
 " let g:which_key_vertical = 1
 Plug 'liuchengxu/vim-which-key'
+Plug 'junegunn/vim-peekaboo'
 
 " JS syntax plug
 " Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript' 
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'dylanaraps/wal.vim' " pywal theme
+
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+
 
 
 " Completetion related plug
@@ -126,12 +130,12 @@ nmap <silent> gr <Plug>(coc-references)
 " let g:syntastic_javascript_eslint_exec = 'eslint'
 
 " Navigating plug
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-let NERDTreeIgnore = ['\.swp$']
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
+" let NERDTreeIgnore = ['\.swp$']
+" let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 " let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 Plug 'easymotion/vim-easymotion'
@@ -170,12 +174,12 @@ Plug 'ervandew/supertab'
 Plug 'ryanoasis/vim-devicons'
 
 let g:webdevicons_enable_ctrlp = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let NERDTreeShowHidden=1
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" let NERDTreeShowHidden=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 " let g:webdevicons_conceal_nerdtree_brackets = 0
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 " Plug 'sbdchd/neoformat'
 " autocmd BufWritePre *.js Neoformat
@@ -191,7 +195,7 @@ let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
 
 Plug 'mhinz/vim-startify'
-" Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim'
 
 call plug#end()
 
@@ -262,12 +266,18 @@ map <Leader>b <Esc>:NERDTreeToggle<CR>
 map <Leader>h <Esc>:History<CR>
 map <Leader>l <Esc>:Lines<CR>
 map <Leader>c <Esc>:Commits<CR>
-map <Leader>g <Esc>:Gstatus<CR>
+map <Leader>m <Esc>:Commands<CR>
+map <Leader>g <Esc>:vertical rightb Gstatus<CR>
 map <Leader>b <Esc>:BCommits<CR>
 map <Leader>f <Esc>:GFiles<CR>
+map <Leader>e <Esc>:Vexplore<CR>
 " map <Leader>] <Esc>:set paste<CR>
 " map <Leader>[ <Esc>:set nopaste<CR>
 
+let g:netrw_keepdir = 0
+let g:netrw_banner = 0     " Hide annoying 'help' banner
+let g:netrw_liststyle = 3  " Use tree view
+let g:netrw_winsize = '30' " Smaller default window size
 " vmap <Leader>y "+y
 " vmap <Leader>d "+d
 " nmap <Leader>p "+p
