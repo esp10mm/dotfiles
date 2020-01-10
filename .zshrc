@@ -1,5 +1,80 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+#
+#zplug "modules/prompt", from:prezto
+#
+## Run a command after a plugin is installed/updated
+## Provided, it requires to set the variable like the following:
+## ZPLUG_SUDO_PASSWORD="********"
+#zplug "mollifier/anyframe", at:4c23cb60
+#
+## Can manage gist file just like other packages
+#zplug "b4b4r07/79ee61f7c140c63d2786", \
+#    from:gist, \
+#    as:command, \
+#    use:get_last_pane_path.sh
+#
+#
+## Group dependencies
+## Load "emoji-cli" if "jq" is installed in this example
+#zplug "stedolan/jq", \
+#    from:gh-r, \
+#    as:command, \
+#    rename-to:jq
+#zplug "b4b4r07/emoji-cli", \
+#    on:"stedolan/jq"
+# zplug "bhilburn/powerlevel9k", as:theme, defer:2
+#zplug 'themes/agnoster', from:oh-my-zsh
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+# zplug
+source ~/.zplug/init.zsh
+# Rename a command with the string captured with `use` tag
+zplug "plugins/git",   from:oh-my-zsh
+zplug "b4b4r07/httpstat", \
+    as:command, \
+    use:'(*).sh', \
+    rename-to:'$1'
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# theme (https://github.com/sindresorhus/pure#zplug)　好みのスキーマをいれてくだされ。
+zplug "mafredri/zsh-async"
+zplug "jhawthorn/fzy", \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"make && sudo make install"
+zplug "tcnksm/docker-alias", use:zshrc
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
+
+export ENHANCD_FILTER=fzf
+zplug "b4b4r07/enhancd", use:init.sh
+
+# zplug 'dracula/zsh', as:theme
+zplug "themes/ys", from:oh-my-zsh, as:theme
+
+#zplug "sindresorhus/pure"
+# 構文のハイライト(https://github.com/zsh-users/zsh-syntax-highlighting)
+zplug "zsh-users/zsh-syntax-highlighting"
+# history関係
+#zplug "zsh-users/zsh-history-substring-search"
+# タイプ補完
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
 export PATH=$PATH:"/lib/pytho2.7/site-packages"
 export PATH=$PATH:"/lib/pytho2.7/"
 export PATH="$PATH:./node_modules/.bin"
@@ -19,123 +94,25 @@ function emulator { ( cd "$(dirname "$(whence -p emulator)")" && ./emulator "$@"
 # Set alias to shorten command and also fix the side-effect
 alias emu="$ANDROID_HOME/tools/emulator"
 
-# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-# eval $(thefuck --alias) 
-fpath=(~/zshfunc $fpath)
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="lambda-mod"
-# ZSH_THEME="ys"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(python emoji git z npm docker docker-compose)
-
-# User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias noexec="chmod -R -x+X -maxdepth 1 *"
 # alias server="python -m SimpleHTTPServer"
 # alias ls="ls -a | fzf"
 # eval `dircolors ~/dircolors.256dark`
-export LS_COLORS=$LS_COLORS:"ln=target"  
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# PS1="$PS1"'$([ -n "$TMUX"  ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# --files: List files that would be searched but do not search
-# # --no-ignore: Do not respect .gitignore, etc...
-# # --hidden: Search hidden files and folders
-# # --follow: Follow symlinks
-# # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_COMMAND='ls -a'
 export FZF_ALT_C_COMMAND='z -et | awk '"'"'{ print $2 }'"'"' '
-
-source ~/antigen.zsh
-
-antigen use oh-my-zsh
-
-
-antigen bundle git
-antigen bundle docker
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle rupa/z
-antigen bundle changyuheng/fz
-antigen bundle command-not-found
-
-
-antigen apply
-antigen theme ~/.oh-my-zsh/custom/themes --loc=my_smt --no-local-clone
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias jest='nocorrect jest'
